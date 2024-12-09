@@ -21,13 +21,23 @@ public class InitCsvFile {
         return null;
     }
 
-    public void createNameDataFile(String fileName) {
+    public void initNameData(String fileName) {
         try {
             CSVWriter writer = initCsvWriter(fileName, false);
             writer.writeNext(new String[]{"PlayerName"});
             writer.close();
         }
         catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void initQuestionData(String fileName) {
+        try {
+            CSVWriter writer = initCsvWriter(fileName, false);
+            writer.writeNext(new String[]{"Question", "Type"});
+            writer.close();
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }

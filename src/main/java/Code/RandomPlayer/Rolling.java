@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Rolling {
     private static int cnt = 0;
@@ -18,16 +19,24 @@ public class Rolling {
         rngLabel.setStyle("-fx-font-size: 200px; -fx-text-fill: red");
         rngLabel.setTranslateY(-200);
 
+        Random rng = new Random();
+
         Thread rngThread = new Thread(() -> {
-            int stop = cnt + 12;
-            while (cnt < stop) {
+            int stop = 30;
+            while (stop != 0) {
                 Platform.runLater(() -> rngLabel.setText(name.get(cnt % name.size())));
                 try {
-                    cnt++;
-                    Thread.sleep(100);
+                    cnt += rng.nextInt(100);
+                    if (stop > 10)
+                        Thread.sleep(100);
+                    else if (stop > 4)
+                        Thread.sleep(200);
+                    else
+                        Thread.sleep(300);
                 } catch (InterruptedException e) {
                     System.out.println(e.getMessage());
                 }
+                stop--;
             }
             String player = name.get(cnt % name.size());
             Platform.runLater(() -> new WinnerAlert("Winner", player).showAnnouncement());

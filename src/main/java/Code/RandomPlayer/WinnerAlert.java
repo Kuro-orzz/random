@@ -37,19 +37,16 @@ public class WinnerAlert {
         HBox buttonLayout = new HBox(10, closeButton, removeButton);
         buttonLayout.setAlignment(Pos.CENTER);
 
-        // Main layout
         VBox layout = new VBox(20, winnerText, buttonLayout);
-        layout.getStylesheets().add(
-                Objects.requireNonNull(getClass().getResource("/styles/RandomPlayer.css")).toExternalForm()
-        );
-        layout.getStyleClass().add("winner-alert");
+        layout.getStyleClass().add("winner-alert-button");
         layout.setAlignment(Pos.CENTER);
 
-        // Set the scene
         Scene scene = new Scene(layout, 350, 200);
+        scene.getStylesheets().add(
+                Objects.requireNonNull(getClass().getResource("/styles/RandomPlayer.css")).toExternalForm()
+        );
         winner.setScene(scene);
 
-        // Show the popup
         winner.showAndWait();
     }
 
@@ -62,7 +59,7 @@ public class WinnerAlert {
         closeButton.setOnAction(e -> winner.close());
         removeButton.setStyle("-fx-background-color: #007BFF; -fx-text-fill: white;");
         removeButton.setOnAction(e -> {
-            // remove player name from csv file (data)
+
             winner.close();
         });
     }

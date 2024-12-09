@@ -34,7 +34,7 @@ public class Method {
         ));
         returnButton.getStyleClass().add("return");
         returnButton.setPreserveRatio(true);
-        returnButton.setFitWidth(70);
+        returnButton.setFitWidth(100);
     }
 
     public void getUI(TextField nameField, Button button) {

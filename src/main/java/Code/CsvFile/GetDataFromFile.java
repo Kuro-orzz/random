@@ -1,12 +1,12 @@
 package Code.CsvFile;
 
+import Code.Question.Question;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class GetDataFromFile {
@@ -39,11 +39,25 @@ public class GetDataFromFile {
     public List<String> getNameFromFile(String fileName) {
         try (CSVReader reader = initCsvReader(fileName)) {
             List<String[]> records = readData(reader);
-            List<String> books = new ArrayList<>();
+            List<String> names = new ArrayList<>();
             for (int i = 1; i < records.size(); i++) {
-                books.add(records.get(i)[0]);
+                names.add(records.get(i)[0]);
             }
-            return books;
+            return names;
+        } catch (IOException e) {
+            System.out.println("File not found in resources: " + e.getMessage());
+        }
+        return null;
+    }
+
+    public List<Question> getQuestionFromFile(String fileName) {
+        try (CSVReader reader = initCsvReader(fileName)) {
+            List<String[]> records = readData(reader);
+            List<Question> questions = new ArrayList<>();
+            for (int i = 1; i < records.size(); i++) {
+                questions.add(new Question(records.get(i)));
+            }
+            return questions;
         } catch (IOException e) {
             System.out.println("File not found in resources: " + e.getMessage());
         }

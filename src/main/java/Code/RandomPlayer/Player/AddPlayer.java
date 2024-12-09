@@ -2,22 +2,12 @@ package Code.RandomPlayer.Player;
 
 import Code.AppController;
 import Code.CsvFile.AppendDataToFile;
-import Code.CsvFile.GetDataFromFile;
-import Code.Home;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-
-import java.util.List;
-import java.util.Objects;
 
 public class AddPlayer extends Method {
     private final AppController controller;
@@ -46,8 +36,8 @@ public class AddPlayer extends Method {
 
     public void setAddButtonAction() {
         nameField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.length() > 20) {
-                nameField.setText(newValue.substring(0, 20));
+            if (newValue.length() > 30) {
+                nameField.setText(newValue.substring(0, 30));
             }
         });
 

@@ -1,25 +1,33 @@
 .button {
-    -fx-font-size: 30px;
     -fx-background-color: #243A73;
     -fx-text-fill: white;
-    -fx-pref-width: 300px;
-    -fx-pref-height: 60px;
-    -fx-translate-x: 0px;
 }
 
 .rolling-button {
+    -fx-font-size: 30px;
+    -fx-pref-width: 300px;
+    -fx-pref-height: 60px;
     -fx-translate-y: 120px;
 }
 
 .add-player-button {
+    -fx-font-size: 30px;
+    -fx-pref-width: 300px;
+    -fx-pref-height: 60px;
     -fx-translate-y: 220px;
 }
 
 .remove-player-button {
+    -fx-font-size: 30px;
+    -fx-pref-width: 300px;
+    -fx-pref-height: 60px;
     -fx-translate-y: 320px;
 }
 
 .op-button {
+    -fx-font-size: 30px;
+    -fx-pref-width: 300px;
+    -fx-pref-height: 60px;
     -fx-translate-y: 250px;
 }
 
@@ -32,7 +40,7 @@
     -fx-pref-height: 70px;
 }
 
-.winner-alert {
+.winner-alert-button {
     -fx-background-color: #333333;
     -fx-padding: 20;
     -fx-border-color: red;

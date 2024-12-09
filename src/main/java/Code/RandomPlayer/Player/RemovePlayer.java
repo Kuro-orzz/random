@@ -9,11 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 
 import java.util.List;
-import java.util.Objects;
 
 public class RemovePlayer extends Method {
     private final AppController controller;
@@ -42,8 +39,8 @@ public class RemovePlayer extends Method {
 
     public void setRemoveButtonAction() {
         nameField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.length() > 20) {
-                nameField.setText(newValue.substring(0, 20));
+            if (newValue.length() > 30) {
+                nameField.setText(newValue.substring(0, 30));
             }
         });
 
