@@ -1,5 +1,4 @@
 package Code.RandomQuestion;
 
-public class RandomQuestion {
-
+public class RollingQuestion {
 }

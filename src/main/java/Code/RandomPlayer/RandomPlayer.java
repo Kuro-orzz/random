@@ -4,18 +4,18 @@ import Code.AppController;
 import Code.Home;
 import Code.RandomPlayer.AddPlayer.AddPlayer;
 import Code.RandomPlayer.RemovePlayer.RemovePlayer;
-import Code.RandomPlayer.Rolling.Rolling;
+import Code.RandomPlayer.Rolling.RollingPlayer;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 import java.util.Objects;
 
-public class RandomPlayer {
+public class RandomPlayer extends Method {
     private final AppController controller;
     private final ImageView backgroundImage;
+    private final ImageView returnButton;
     private final Button rolling;
     private final Button addPlayer;
     private final Button removePlayer;
@@ -23,18 +23,19 @@ public class RandomPlayer {
     public RandomPlayer(AppController controller) {
         this.controller = controller;
         this.backgroundImage = new ImageView();
+        this.returnButton = new ImageView();
         this.rolling = new Button("Rolling");
         this.addPlayer = new Button("Add Player");
         this.removePlayer = new Button("Remove Player");
     }
 
     public Scene getRandomPlayerScene() {
-        loadImage();
-
+        loadImage(backgroundImage, returnButton);
         getUI();
         setButtonAction();
 
-        StackPane stackPane = new StackPane(backgroundImage, rolling, addPlayer, removePlayer);
+        StackPane stackPane = new StackPane(backgroundImage,
+                returnButton, rolling, addPlayer, removePlayer);
 
         Scene randomPlayerScene = new Scene(stackPane, 1920, 1080);
         randomPlayerScene.getStylesheets().add(
@@ -44,40 +45,24 @@ public class RandomPlayer {
         return randomPlayerScene;
     }
 
-    public void loadImage() {
-        backgroundImage.setImage(new Image(
-                Objects.requireNonNull(Home.class.getResourceAsStream("/gif.gif"))
-        ));
-        backgroundImage.setFitWidth(1920);
-        backgroundImage.setFitHeight(1080);
-        backgroundImage.setPreserveRatio(true);
-        backgroundImage.setStyle("-fx-opacity: 0.3");
-    }
-
     public void getUI() {
-        rolling.getStylesheets().add(
-                Objects.requireNonNull(getClass().getResource("/styles/RandomPlayer.css")).toExternalForm()
-        );
         rolling.getStyleClass().add("rolling-button");
         setButtonAnimation(rolling);
 
-        addPlayer.getStylesheets().add(
-                Objects.requireNonNull(getClass().getResource("/styles/RandomPlayer.css")).toExternalForm()
-        );
         addPlayer.getStyleClass().add("add-player-button");
         setButtonAnimation(addPlayer);
 
-        removePlayer.getStylesheets().add(
-                Objects.requireNonNull(getClass().getResource("/styles/RandomPlayer.css")).toExternalForm()
-        );
         removePlayer.getStyleClass().add("remove-player-button");
         setButtonAnimation(removePlayer);
     }
 
     public void setButtonAction() {
+        setButtonAnimation(returnButton);
+        returnButton.setOnMouseClicked(e -> controller.setScene(new Home(controller).getHomeScene()));
+
         rolling.setOnAction(e -> {
             Scene root = getRandomPlayerScene();
-            StackPane stackPane = new StackPane(root.getRoot(), new Rolling().renderRolling());
+            StackPane stackPane = new StackPane(root.getRoot(), new RollingPlayer().renderRolling());
             Scene randomPlayerScene = new Scene(stackPane, 1920, 1080);
             controller.setScene(randomPlayerScene);
         });
@@ -88,18 +73,6 @@ public class RandomPlayer {
 
         removePlayer.setOnAction(e -> {
             controller.setScene(new RemovePlayer(controller).getRemovePlayerScene());
-        });
-    }
-
-    public void setButtonAnimation(Button button) {
-        button.setOnMouseEntered(e -> {
-            button.setScaleX(1.2); // Increase width
-            button.setScaleY(1.2); // Increase height
-        });
-
-        button.setOnMouseExited(e -> {
-            button.setScaleX(1.0); // Reset width
-            button.setScaleY(1.0); // Reset height
         });
     }
 }

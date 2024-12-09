@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Rolling {
+public class RollingPlayer {
     private static int cnt = 0;
     private static List<String> name = new ArrayList<>();
 
