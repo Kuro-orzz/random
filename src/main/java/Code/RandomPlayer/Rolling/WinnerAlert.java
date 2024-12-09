@@ -1,4 +1,4 @@
-package Code.RandomPlayer;
+package Code.RandomPlayer.Rolling;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

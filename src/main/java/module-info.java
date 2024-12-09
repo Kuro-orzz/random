@@ -13,6 +13,10 @@ module org.example.random_question {
 
     opens Testing to javafx.fxml;
     exports Testing;
-    exports Code.RandomPlayer.Player;
-    opens Code.RandomPlayer.Player to javafx.fxml;
+    exports Code.RandomPlayer.Rolling;
+    opens Code.RandomPlayer.Rolling to javafx.fxml;
+    exports Code.RandomPlayer.AddPlayer;
+    opens Code.RandomPlayer.AddPlayer to javafx.fxml;
+    exports Code.RandomPlayer.RemovePlayer;
+    opens Code.RandomPlayer.RemovePlayer to javafx.fxml;
 }

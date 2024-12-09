@@ -2,8 +2,9 @@ package Code.RandomPlayer;
 
 import Code.AppController;
 import Code.Home;
-import Code.RandomPlayer.Player.AddPlayer;
-import Code.RandomPlayer.Player.RemovePlayer;
+import Code.RandomPlayer.AddPlayer.AddPlayer;
+import Code.RandomPlayer.RemovePlayer.RemovePlayer;
+import Code.RandomPlayer.Rolling.Rolling;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;

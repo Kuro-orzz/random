@@ -1,9 +1,8 @@
-package Code.RandomPlayer.Player;
+package Code.RandomPlayer;
 
 import Code.AppController;
 import Code.CsvFile.GetDataFromFile;
 import Code.Home;
-import Code.RandomPlayer.RandomPlayer;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;

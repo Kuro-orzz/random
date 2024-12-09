@@ -1,4 +1,4 @@
-package Code.RandomPlayer;
+package Code.RandomPlayer.Rolling;
 
 import Code.CsvFile.GetDataFromFile;
 import javafx.application.Platform;
