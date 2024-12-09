@@ -1,0 +1,52 @@
+.button {
+    -fx-font-size: 30px;
+    -fx-background-color: #243A73;
+    -fx-text-fill: white;
+    -fx-pref-width: 300px;
+    -fx-pref-height: 60px;
+    -fx-translate-x: 0px;
+}
+
+.rolling-button {
+    -fx-translate-y: 120px;
+}
+
+.add-player-button {
+    -fx-translate-y: 220px;
+}
+
+.remove-player-button {
+    -fx-translate-y: 320px;
+}
+
+.op-button {
+    -fx-translate-y: 250px;
+}
+
+.name-field {
+    -fx-background-color: white;
+    -fx-opacity: 1;
+    -fx-font-size: 25px;
+    -fx-prompt-text-fill: gray;
+    -fx-pref-width: 420px;
+    -fx-pref-height: 70px;
+}
+
+.winner-alert {
+    -fx-background-color: #333333;
+    -fx-padding: 20;
+    -fx-border-color: red;
+    -fx-border-width: 5;
+}
+
+.cur-list {
+    -fx-font-family: "Arial";
+    -fx-font-size: 40px;
+    -fx-alignment: center;
+    -fx-translate-y: -300px;
+}
+
+.return {
+    -fx-translate-x: -850px;
+    -fx-translate-y: -400px;
+}

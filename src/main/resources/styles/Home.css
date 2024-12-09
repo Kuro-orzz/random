@@ -1,0 +1,59 @@
+.welcome-text {
+    -fx-font-size: 100px;
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 0%, red, orange, yellow, green, blue, indigo, violet);
+    -fx-effect: dropshadow(gaussian, rgba(141, 132, 132, 0.75), 10, 0.5, 2, 2);
+    -fx-font-weight: bold;
+    -fx-translate-x: 0px;
+    -fx-translate-y: -300px;
+}
+
+.random-player {
+    -fx-font-size: 30px;
+    -fx-background-color: #243A73;
+    -fx-text-fill: white;
+    -fx-pref-width: 300px;
+    -fx-pref-height: 60px;
+    -fx-translate-x: 0px;
+    -fx-translate-y: 20px;
+}
+
+.select-button {
+    -fx-font-size: 30px;
+    -fx-background-color: #243A73;
+    -fx-text-fill: white;
+    -fx-pref-width: 300px;
+    -fx-pref-height: 60px;
+    -fx-translate-x: 0px;
+    -fx-translate-y: 120px;
+}
+
+.random-button {
+    -fx-font-size: 30px;
+    -fx-background-color: #243A73;
+    -fx-text-fill: white;
+    -fx-pref-width: 300px;
+    -fx-pref-height: 60px;
+    -fx-translate-x: 0px;
+    -fx-translate-y: 220px;
+}
+
+/*.list-player {*/
+/*    -fx-font-size: 30px;*/
+/*    -fx-background-color: #243A73;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-pref-width: 300px;*/
+/*    -fx-pref-height: 60px;*/
+/*    -fx-translate-x: 0px;*/
+/*    -fx-translate-y: 220px;*/
+/*}*/
+
+/*.add-player {*/
+/*    -fx-font-size: 30px;*/
+/*    -fx-background-color: #243A73;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-pref-width: 300px;*/
+/*    -fx-pref-height: 60px;*/
+/*    -fx-translate-x: 0px;*/
+/*    -fx-translate-y: 320px;*/
+/*}*/
