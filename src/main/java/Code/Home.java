@@ -1,6 +1,7 @@
 package Code;
 
 import Code.RandomPlayer.RandomPlayer;
+import Code.RandomQuestion.RandomQuestion;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -83,9 +84,8 @@ public class Home {
         randomQuestion.getStyleClass().add("random-button");
         setButtonAnimation(randomQuestion);
         randomQuestion.setOnMouseClicked(event -> {
-            System.out.println("random");
-            // go to random screen
-            // random người hay câu hỏi
+            Scene randomQuestion = new RandomQuestion(controller).getRandomQuestionScene();
+            controller.setScene(randomQuestion);
         });
     }
 

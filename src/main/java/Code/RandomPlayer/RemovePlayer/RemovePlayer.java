@@ -3,7 +3,8 @@ package Code.RandomPlayer.RemovePlayer;
 import Code.AppController;
 import Code.CsvFile.GetDataFromFile;
 import Code.CsvFile.UpdateDataFromListToFile;
-import Code.RandomPlayer.Method;
+import Code.Method;
+import Code.RandomPlayer.RandomPlayer;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -32,7 +33,8 @@ public class RemovePlayer extends Method {
     public Scene getRemovePlayerScene() {
         loadImage(backgroundImage, returnButton);
         getUI(nameField, remove);
-        setReturnButtonAction(controller, returnButton);
+        RandomPlayer randomPlayer = new RandomPlayer(controller);
+        setReturnButtonAction(controller, returnButton, randomPlayer.getRandomPlayerScene());
         setRemoveButtonAction();
 
         return initScene(backgroundImage, returnButton, nameField, remove);

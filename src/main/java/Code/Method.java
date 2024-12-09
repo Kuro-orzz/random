@@ -1,8 +1,7 @@
-package Code.RandomPlayer;
+package Code;
 
-import Code.AppController;
 import Code.CsvFile.GetDataFromFile;
-import Code.Home;
+import Code.RandomPlayer.RandomPlayer;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -61,9 +60,9 @@ public class Method {
         return new StackPane(gridPane);
     }
 
-    public void setReturnButtonAction(AppController controller, ImageView returnButton) {
+    public void setReturnButtonAction(AppController controller, ImageView returnButton, Scene scene) {
         setButtonAnimation(returnButton);
-        returnButton.setOnMouseClicked(e -> controller.setScene(new RandomPlayer(controller).getRandomPlayerScene()));
+        returnButton.setOnMouseClicked(e -> controller.setScene(scene));
     }
 
     public void setButtonAnimation(Node node) {

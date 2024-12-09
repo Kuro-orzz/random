@@ -2,7 +2,8 @@ package Code.RandomPlayer.AddPlayer;
 
 import Code.AppController;
 import Code.CsvFile.AppendDataToFile;
-import Code.RandomPlayer.Method;
+import Code.Method;
+import Code.RandomPlayer.RandomPlayer;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -29,7 +30,8 @@ public class AddPlayer extends Method {
     public Scene getAddPlayerScene() {
         loadImage(backgroundImage, returnButton);
         getUI(nameField, add);
-        setReturnButtonAction(controller, returnButton);
+        RandomPlayer randomPlayer = new RandomPlayer(controller);
+        setReturnButtonAction(controller, returnButton, randomPlayer.getRandomPlayerScene());
         setAddButtonAction();
 
         return initScene(backgroundImage, returnButton, nameField, add);

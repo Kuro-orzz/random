@@ -2,6 +2,7 @@ package Code.RandomPlayer;
 
 import Code.AppController;
 import Code.Home;
+import Code.Method;
 import Code.RandomPlayer.AddPlayer.AddPlayer;
 import Code.RandomPlayer.RemovePlayer.RemovePlayer;
 import Code.RandomPlayer.Rolling.RollingPlayer;

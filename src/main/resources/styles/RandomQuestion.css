@@ -1,0 +1,16 @@
+.button {
+    -fx-background-color: #243A73;
+    -fx-text-fill: white;
+}
+
+.rolling-button {
+    -fx-font-size: 30px;
+    -fx-pref-width: 300px;
+    -fx-pref-height: 60px;
+    -fx-translate-y: 250px;
+}
+
+.return {
+    -fx-translate-x: -850px;
+    -fx-translate-y: -400px;
+}
