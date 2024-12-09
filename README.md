@@ -1,1 +1,1 @@
-# rendom
+# random
