@@ -4,6 +4,7 @@ import Code.AppController;
 import Code.CsvFile.GetDataFromFile;
 import Code.CsvFile.UpdateDataFromListToFile;
 import Code.Method;
+import Code.RandomPlayer.AddRemoveMethod;
 import Code.RandomPlayer.RandomPlayer;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -14,7 +15,7 @@ import javafx.scene.input.KeyCode;
 
 import java.util.List;
 
-public class RemovePlayer extends Method {
+public class RemovePlayer extends AddRemoveMethod {
     private final AppController controller;
     private final ImageView backgroundImage;
     private final TextField nameField;
@@ -31,16 +32,22 @@ public class RemovePlayer extends Method {
     }
 
     public Scene getRemovePlayerScene() {
-        loadImage(backgroundImage, returnButton);
-        getUI(nameField, remove);
+        new Method().loadImage(backgroundImage, returnButton);
         RandomPlayer randomPlayer = new RandomPlayer(controller);
         setReturnButtonAction(controller, returnButton, randomPlayer.getRandomPlayerScene());
+        getUI();
+        setTextFieldEvent();
         setRemoveButtonAction();
 
         return initScene(backgroundImage, returnButton, nameField, remove);
     }
 
-    public void setRemoveButtonAction() {
+    public void getUI() {
+        nameField.getStyleClass().add("name-field");
+        remove.getStyleClass().add("op-button");
+    }
+
+    public void setTextFieldEvent() {
         nameField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.length() > 30) {
                 nameField.setText(newValue.substring(0, 30));
@@ -52,11 +59,11 @@ public class RemovePlayer extends Method {
                 removeAction();
             }
         });
+    }
 
+    public void setRemoveButtonAction() {
         setButtonAnimation(remove);
-        remove.setOnAction(e -> {
-            removeAction();
-        });
+        remove.setOnAction(e -> removeAction());
     }
 
     public void removeAction() {
@@ -67,8 +74,8 @@ public class RemovePlayer extends Method {
                 UpdateDataFromListToFile upd = new UpdateDataFromListToFile();
                 upd.updateName("PlayerList.csv", data);
                 showAlert(Alert.AlertType.INFORMATION,
-                        "Remove successful;",
-                        "Success full removed \"" + nameField.getText() + "\" from list"
+                        "Removed successful;",
+                        "Successfully removed \"" + nameField.getText() + "\" from list"
                 );
                 nameField.setText("");
                 controller.setScene(getRemovePlayerScene());
@@ -77,8 +84,8 @@ public class RemovePlayer extends Method {
         }
         showAlert(
                 Alert.AlertType.ERROR,
-                "ERROR",
-                "Player " + nameField.getText() + " not found"
+                "Error",
+                "Not found \"" + nameField.getText() + "\" in list"
         );
     }
 }

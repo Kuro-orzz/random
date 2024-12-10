@@ -77,12 +77,12 @@ public class RandomPlayer extends Method {
             controller.setScene(randomPlayerScene);
         });
 
-        addPlayer.setOnAction(e -> {
-            controller.setScene(new AddPlayer(controller).getAddPlayerScene());
-        });
+        addPlayer.setOnAction(e ->
+            controller.setScene(new AddPlayer(controller).getAddPlayerScene())
+        );
 
-        removePlayer.setOnAction(e -> {
-            controller.setScene(new RemovePlayer(controller).getRemovePlayerScene());
-        });
+        removePlayer.setOnAction(e ->
+            controller.setScene(new RemovePlayer(controller).getRemovePlayerScene())
+        );
     }
 }

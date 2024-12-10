@@ -34,13 +34,11 @@ public class RollingQuestion {
         rngLabel.setStyle("-fx-font-size: 70px");
         rngLabel.setTranslateY(-250);
 
-        Random rng = new Random();
-
         Thread rngThread = new Thread(() -> {
+            Random rng = new Random();
             int stop = 40;
-            int cntQ = questions.size();
             while (stop != 0) {
-                Platform.runLater(() -> rngLabel.setText(questions.get(cnt % cntQ).getQuestion()));
+                Platform.runLater(() -> rngLabel.setText(questions.get(cnt % questions.size()).getQuestion()));
                 try {
                     cnt += rng.nextInt(100);
                     if (stop > 25)
@@ -56,11 +54,11 @@ public class RollingQuestion {
                 }
                 stop--;
             }
-            cnt = cnt % cntQ;
-            topic.add(questions.get(cnt % cntQ).getTopic());
+            topic.add(questions.get(cnt % questions.size()).getTopic());
             if (topic.size() == 3) {
                 topic.remove(0);
             }
+            cnt = cnt % questions.size();
         });
         rngThread.setDaemon(true);
         rngThread.start();
@@ -71,5 +69,4 @@ public class RollingQuestion {
 
         return rngLabel;
     }
-
 }

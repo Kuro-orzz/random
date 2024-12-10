@@ -15,14 +15,26 @@ public class RollingPlayer {
     public Label renderRolling() {
         GetDataFromFile gdf = new GetDataFromFile();
         name = gdf.getNameFromFile("PlayerList.csv");
+
+        if (name.isEmpty()) {
+            Label t = new Label("All are done!");
+            t.setStyle("-fx-font-size: 200px; -fx-text-fill: red");
+            t.setTranslateY(-200);
+            return t;
+        }
+
         Label rngLabel = new Label();
         rngLabel.setStyle("-fx-font-size: 200px; -fx-text-fill: red");
         rngLabel.setTranslateY(-200);
 
-        Random rng = new Random();
-
         Thread rngThread = new Thread(() -> {
+            Random rng = new Random();
             int stop = 50;
+
+            if (name.size() == 1) {
+                stop = 0;
+            }
+
             while (stop != 0) {
                 Platform.runLater(() -> rngLabel.setText(name.get(cnt % name.size())));
                 try {
