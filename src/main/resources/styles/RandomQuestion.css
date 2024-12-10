@@ -9,8 +9,3 @@
     -fx-pref-height: 60px;
     -fx-translate-y: 250px;
 }
-
-.return {
-    -fx-translate-x: -850px;
-    -fx-translate-y: -400px;
-}

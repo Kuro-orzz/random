@@ -28,39 +28,48 @@ public class RandomPlayer extends Method {
         this.rolling = new Button("Rolling");
         this.addPlayer = new Button("Add Player");
         this.removePlayer = new Button("Remove Player");
+        loadImage(backgroundImage, returnButton);
     }
 
     public Scene getRandomPlayerScene() {
-        loadImage(backgroundImage, returnButton);
         getUI();
+        setReturnButtonAction(controller, returnButton, new Home(controller).getHomeScene());
         setButtonAction();
 
         StackPane stackPane = new StackPane(backgroundImage,
                 returnButton, rolling, addPlayer, removePlayer);
 
-        Scene randomPlayerScene = new Scene(stackPane, 1920, 1080);
-        randomPlayerScene.getStylesheets().add(
-                Objects.requireNonNull(getClass().getResource("/styles/RandomPlayer.css")).toExternalForm()
-        );
-
-        return randomPlayerScene;
+        return new Scene(stackPane, 1920, 1080);
     }
 
     public void getUI() {
+        // rolling
+        rolling.getStylesheets().add(
+                Objects.requireNonNull(getClass().getResource("/styles/RandomPlayer.css")).toExternalForm()
+        );
         rolling.getStyleClass().add("rolling-button");
         setButtonAnimation(rolling);
 
+        // add
+        addPlayer.getStylesheets().add(
+                Objects.requireNonNull(getClass().getResource("/styles/RandomPlayer.css")).toExternalForm()
+        );
         addPlayer.getStyleClass().add("add-player-button");
         setButtonAnimation(addPlayer);
 
+        // remove
+        removePlayer.getStylesheets().add(
+                Objects.requireNonNull(getClass().getResource("/styles/RandomPlayer.css")).toExternalForm()
+        );
         removePlayer.getStyleClass().add("remove-player-button");
         setButtonAnimation(removePlayer);
+
+        // return
+        returnButton.setTranslateX(-850);
+        returnButton.setTranslateY(-400);
     }
 
     public void setButtonAction() {
-        setButtonAnimation(returnButton);
-        returnButton.setOnMouseClicked(e -> controller.setScene(new Home(controller).getHomeScene()));
-
         rolling.setOnAction(e -> {
             Scene root = getRandomPlayerScene();
             StackPane stackPane = new StackPane(root.getRoot(), new RollingPlayer().renderRolling());

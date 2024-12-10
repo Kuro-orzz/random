@@ -1,7 +1,6 @@
 package Code;
 
 import Code.CsvFile.GetDataFromFile;
-import Code.RandomPlayer.RandomPlayer;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;

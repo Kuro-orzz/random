@@ -25,10 +25,10 @@ public class Home {
         this.randomPlayer = new Button();
         this.selectQuestion = new Button();
         this.randomQuestion = new Button();
+        loadImage();
     }
 
     public Scene getHomeScene() {
-        loadImage();
         setTextLabel();
 
         setButtonAction();

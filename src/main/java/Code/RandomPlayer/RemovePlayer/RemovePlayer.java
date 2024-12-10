@@ -25,7 +25,7 @@ public class RemovePlayer extends Method {
         this.controller = controller;
         this.backgroundImage = new ImageView();
         this.nameField = new TextField();
-        nameField.setPromptText("good luck (❁´◡`❁)");
+        nameField.setPromptText("(～￣▽￣)～");
         this.remove = new Button("Remove");
         this.returnButton = new ImageView();
     }
