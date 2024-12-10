@@ -24,12 +24,17 @@ public class Method {
         backgroundImage.setFitWidth(1920);
         backgroundImage.setFitHeight(1080);
         backgroundImage.setPreserveRatio(true);
-        backgroundImage.setStyle("-fx-opacity: 0.3");
+        backgroundImage.setStyle("-fx-opacity: 0.2");
+
+        if (returnButton == null) {
+            return;
+        }
 
         returnButton.setImage(new Image(
                 Objects.requireNonNull(getClass().getResourceAsStream("/return.png"))
         ));
-        returnButton.getStyleClass().add("return");
+        returnButton.setTranslateX(-850);
+        returnButton.setTranslateY(-450);
         returnButton.setPreserveRatio(true);
         returnButton.setFitWidth(100);
     }

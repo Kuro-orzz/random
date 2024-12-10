@@ -23,7 +23,7 @@ public class AddPlayer extends Method {
         this.backgroundImage = new ImageView();
         this.returnButton = new ImageView();
         this.nameField = new TextField();
-        nameField.setPromptText("good luck ╰(*°▽°*)╯");
+        nameField.setPromptText("Good luck ╰(*°▽°*)╯");
         this.add = new Button("Add");
     }
 

@@ -13,7 +13,7 @@ public class Main {
 //        initCsvFile.initQuestionData("QuestionData.csv");
         List<Question> questionList = new GetDataFromFile().getQuestionFromFile("QuestionData.csv");
         for (Question question : questionList) {
-            System.out.println(question.getQuestion() + "\t\t\t\t" + question.getType());
+            System.out.println(question.getQuestion() + "\t\t\t\t" + question.getTopic());
         }
     }
 }

@@ -25,9 +25,9 @@ public class UpdateDataFromListToFile extends InitCsvFile {
     public void updateQuestion(String fileName, List<Question> questionList) {
         try {
             CSVWriter writer = initCsvWriter(fileName, false);
-            writer.writeNext(new String[]{"playerName"});
+            writer.writeNext(new String[]{"Question", "Topic"});
             for (Question question : questionList) {
-                String[] data = {question.getQuestion(), question.getType()};
+                String[] data = {question.getQuestion(), question.getTopic()};
                 writer.writeNext(data);
             }
             writer.close();

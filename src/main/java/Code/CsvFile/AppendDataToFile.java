@@ -21,7 +21,7 @@ public class AppendDataToFile extends InitCsvFile {
     public void appendQuestion(String fileName, Question question) {
         try {
             CSVWriter writer = initCsvWriter(fileName, true);
-            String[] data = {question.getQuestion(), question.getType()};
+            String[] data = {question.getQuestion(), question.getTopic()};
             writer.writeNext(data);
             writer.close();
         } catch (IOException e) {

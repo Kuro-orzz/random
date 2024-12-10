@@ -22,17 +22,21 @@ public class RollingPlayer {
         Random rng = new Random();
 
         Thread rngThread = new Thread(() -> {
-            int stop = 30;
+            int stop = 50;
             while (stop != 0) {
                 Platform.runLater(() -> rngLabel.setText(name.get(cnt % name.size())));
                 try {
                     cnt += rng.nextInt(100);
-                    if (stop > 10)
+                    if (stop > 30)
+                        Thread.sleep(50);
+                    else if (stop > 15)
                         Thread.sleep(100);
-                    else if (stop > 4)
+                    else if (stop > 6)
                         Thread.sleep(200);
-                    else
+                    else if (stop > 3)
                         Thread.sleep(300);
+                    else
+                        Thread.sleep(400);
                 } catch (InterruptedException e) {
                     System.out.println(e.getMessage());
                 }

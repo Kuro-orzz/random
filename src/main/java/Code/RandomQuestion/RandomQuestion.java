@@ -39,7 +39,7 @@ public class RandomQuestion extends Method {
     public void getUI() {
         setButtonAnimation(returnButton);
         returnButton.setTranslateX(-850);
-        returnButton.setTranslateY(-400);
+        returnButton.setTranslateY(-450);
 
         setButtonAnimation(rollingButton);
         rollingButton.getStylesheets().add(

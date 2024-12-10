@@ -66,7 +66,7 @@ public class RandomPlayer extends Method {
 
         // return
         returnButton.setTranslateX(-850);
-        returnButton.setTranslateY(-400);
+        returnButton.setTranslateY(-450);
     }
 
     public void setButtonAction() {

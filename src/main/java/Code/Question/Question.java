@@ -2,16 +2,16 @@ package Code.Question;
 
 public class Question {
     private String question;
-    private String type;
+    private String topic;
 
-    public Question(String question, String type) {
+    public Question(String question, String topic) {
         this.question = question;
-        this.type = type;
+        this.topic = topic;
     }
 
     public Question(String[] data) {
         this.question = data[0];
-        this.type = data[1];
+        this.topic = data[1];
     }
 
     public String getQuestion() {
@@ -22,11 +22,11 @@ public class Question {
         this.question = question;
     }
 
-    public String getType() {
-        return type;
+    public String getTopic() {
+        return topic;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTopic(String type) {
+        this.topic = type;
     }
 }

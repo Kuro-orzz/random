@@ -12,41 +12,61 @@ import java.util.Random;
 
 public class RollingQuestion {
     private static  int cnt = 0;
-    private static List<Question> questions = new ArrayList<>();
+    private static final List<Question> questions = new ArrayList<>();
+    private static final List<String> topic = new ArrayList<>();
 
     public Label renderRolling() {
         GetDataFromFile gdf = new GetDataFromFile();
-        questions = gdf.getQuestionFromFile("QuestionData.csv");
+        List<Question> data = gdf.getQuestionFromFile("QuestionData.csv");
+        for (Question q : data) {
+            boolean t = true;
+            for (String s : topic) {
+                if (q.getTopic().equals(s)) {
+                    t = false;
+                    break;
+                }
+            }
+            if (t) {
+                questions.add(q);
+            }
+        }
         Label rngLabel = new Label();
-        rngLabel.setStyle("-fx-font-size: 50px");
-        rngLabel.setTranslateY(-200);
+        rngLabel.setStyle("-fx-font-size: 70px");
+        rngLabel.setTranslateY(-250);
 
         Random rng = new Random();
 
         Thread rngThread = new Thread(() -> {
-            int stop = 35;
+            int stop = 40;
+            int cntQ = questions.size();
             while (stop != 0) {
-                Platform.runLater(() -> rngLabel.setText(questions.get(cnt % questions.size()).getQuestion()));
+                Platform.runLater(() -> rngLabel.setText(questions.get(cnt % cntQ).getQuestion()));
                 try {
                     cnt += rng.nextInt(100);
-                    if (stop > 15)
+                    if (stop > 25)
                         Thread.sleep(50);
-                    else if (stop > 7)
+                    else if (stop > 15)
                         Thread.sleep(100);
-                    else
+                    else if (stop > 10)
+                        Thread.sleep(200);
+                    else if (stop > 5)
                         Thread.sleep(300);
                 } catch (InterruptedException e) {
                     System.out.println(e.getMessage());
                 }
                 stop--;
             }
-            cnt = cnt % questions.size();
+            cnt = cnt % cntQ;
+            topic.add(questions.get(cnt % cntQ).getTopic());
+            if (topic.size() == 3) {
+                topic.remove(0);
+            }
         });
         rngThread.setDaemon(true);
         rngThread.start();
 
         rngLabel.setWrapText(true);
-        rngLabel.setPrefWidth(1500);
+        rngLabel.setMaxWidth(1575);
         rngLabel.setAlignment(Pos.CENTER);
 
         return rngLabel;

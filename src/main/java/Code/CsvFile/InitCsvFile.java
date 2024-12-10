@@ -35,7 +35,7 @@ public class InitCsvFile {
     public void initQuestionData(String fileName) {
         try {
             CSVWriter writer = initCsvWriter(fileName, false);
-            writer.writeNext(new String[]{"Question", "Type"});
+            writer.writeNext(new String[]{"Question", "Topic"});
             writer.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
