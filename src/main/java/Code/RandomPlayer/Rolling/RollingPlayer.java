@@ -17,7 +17,7 @@ public class RollingPlayer {
         name = gdf.getNameFromFile("PlayerList.csv");
 
         if (name.isEmpty()) {
-            Label t = new Label("All are done!");
+            Label t = new Label("The end!");
             t.setStyle("-fx-font-size: 200px; -fx-text-fill: red");
             t.setTranslateY(-200);
             return t;
@@ -63,4 +63,6 @@ public class RollingPlayer {
 
         return rngLabel;
     }
+
+//    public void firework
 }

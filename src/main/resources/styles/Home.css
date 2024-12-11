@@ -18,7 +18,7 @@
     -fx-translate-y: 20px;
 }
 
-.select-button {
+.random-button {
     -fx-font-size: 30px;
     -fx-background-color: #243A73;
     -fx-text-fill: white;
@@ -28,7 +28,7 @@
     -fx-translate-y: 120px;
 }
 
-.random-button {
+.exit-button {
     -fx-font-size: 30px;
     -fx-background-color: #243A73;
     -fx-text-fill: white;

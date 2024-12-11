@@ -16,15 +16,15 @@ public class Home {
     public final ImageView backgroundImage = new ImageView();
     private final Label welcomeText;
     private final Button randomPlayer;
-    private final Button selectQuestion;
     private final Button randomQuestion;
+    private final Button exitButton;
 
     public Home(AppController controller) {
         this.controller = controller;
         this.welcomeText = new Label();
         this.randomPlayer = new Button();
-        this.selectQuestion = new Button();
         this.randomQuestion = new Button();
+        this.exitButton = new Button();
         loadImage();
     }
 
@@ -35,7 +35,7 @@ public class Home {
 
         StackPane stackPane = new StackPane();
         stackPane.getChildren().addAll(backgroundImage, welcomeText,
-                randomPlayer, selectQuestion, randomQuestion);
+                randomPlayer, randomQuestion, exitButton);
 
         Scene homeScene = new Scene(stackPane, 1920, 1080);
         homeScene.getStylesheets().add(
@@ -71,21 +71,20 @@ public class Home {
             // Spin button to roll
         });
 
-        selectQuestion.setText("Select question");
-        selectQuestion.getStyleClass().add("select-button");
-        setButtonAnimation(selectQuestion);
-        selectQuestion.setOnMouseClicked(event -> {
-            System.out.println("select");
-            // go to select screen (question package)
-            // đợi chốt xem có những chủ đề gì
-        });
-
         randomQuestion.setText("Random question");
         randomQuestion.getStyleClass().add("random-button");
         setButtonAnimation(randomQuestion);
         randomQuestion.setOnMouseClicked(event -> {
             Scene randomQuestion = new RandomQuestion(controller).getRandomQuestionScene();
             controller.setScene(randomQuestion);
+        });
+
+        exitButton.setText("Exit");
+        exitButton.getStyleClass().add("exit-button");
+        setButtonAnimation(exitButton);
+        exitButton.setOnMouseClicked(event -> {
+           System.exit(0);
+
         });
     }
 
